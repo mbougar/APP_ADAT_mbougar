@@ -11,8 +11,8 @@ object DTOMapper {
     fun usuarioRegisteredDTOToEntity(usuarioInsertDTO: UsuarioRegisterDTO, passwordEncoder: PasswordEncoder) : Usuario {
         return Usuario(
             _id = null,
-            username = passwordEncoder.encode(usuarioInsertDTO.username),
-            password = usuarioInsertDTO.password,
+            username = usuarioInsertDTO.username,
+            password = passwordEncoder.encode(usuarioInsertDTO.password),
             email = usuarioInsertDTO.email,
             roles = usuarioInsertDTO.rol ?: "",
             direccion = Direccion(
