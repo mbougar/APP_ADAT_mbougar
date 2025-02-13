@@ -16,9 +16,11 @@ import org.springframework.security.core.Authentication
 import org.springframework.security.core.AuthenticationException
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@RequestMapping("/usuarios")
 class UsuarioController {
 
     @Autowired
@@ -34,7 +36,7 @@ class UsuarioController {
         @RequestBody usuarioRegisterDTO: UsuarioRegisterDTO
     ) : ResponseEntity<UsuarioDTO>?{
 
-        // TODO: Implementar este metodo
+        usuarioService.insertUser(usuarioRegisterDTO)
 
         return ResponseEntity(null, HttpStatus.CREATED)
 
